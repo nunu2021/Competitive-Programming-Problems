@@ -1,0 +1,10 @@
+wget https://bitcoin.org/bin/bitcoin-core-0.20.0/bitcoin-0.20.0-x86_64-linux-gnu.tar.gz
+tar -xvf bitcoin-0.20.0-x86_64-linux-gnu.tar.gz
+
+
+sudo cp /bitcoin-0.20.0/bin/* /usr/local/bin
+mkdir data
+mkdir ~/.bitcoin
+mkdir regtest/node1
+bitcoind -regtest -port=1111 -datadir=/regtest/node1 -rpcport=1234 --daemon
+alias node1="bitcoin-cli -regtest -datadir=/regtest/node1 -rpcport=1234"
