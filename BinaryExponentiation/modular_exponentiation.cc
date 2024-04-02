@@ -1,25 +1,24 @@
-#include "../bits/stdc++.h"
+#include "bits/stdc++.h"
 
 using namespace std;
-int t, mod, a, b;
+long long int t, mod, a, b;
 int main(){
     cin >> t >> mod;
 
     while(t--){
         cin >> a >> b;
-        printf("Whatttttt %d %d \n", a, b);
         long long int curr = 1;
-        int a_pw = a;
+        long long int a_pw = a;
         while(b){
-            printf("Whatttttt before %d %d %d\n", a, b, curr);
-            int power = b&1;
-            curr *= pow((a_pw % mod), power);
+            long long int power = b&1;
+            long long int powerr = pow((a_pw % mod), power);
+            curr *= powerr%mod;
             curr %= mod;
             a_pw *= a_pw;
+            a_pw %= mod;
             b >>= 1;
-            printf("Whatttttt after %d %d %d\n", a, b, curr);
         }
-        int bruh = curr % mod;
+        long bruh = curr % mod;
         cout << bruh << endl;
 
     }
